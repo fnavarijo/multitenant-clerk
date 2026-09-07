@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton, OrganizationSwitcher } from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -24,9 +24,15 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col text-white bg-amber-200">
         <ClerkProvider>
           <header className="flex justify-end items-center p-4 gap-4 h-16">
+            <OrganizationSwitcher appearance={{
+              variables: {
+                colorMutedForeground: '#ffffff',
+                colorNeutral: '#ffffff'
+              }
+            }} />
             <Show when="signed-out">
               <SignInButton />
               <SignUpButton>
