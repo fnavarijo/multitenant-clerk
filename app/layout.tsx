@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
             <OrganizationSwitcher appearance={{
               variables: {
                 colorMutedForeground: '#ffffff',
-                colorNeutral: '#ffffff'
+                // colorNeutral: '#ffffff'
               }
             }} />
             <Show when="signed-out">
